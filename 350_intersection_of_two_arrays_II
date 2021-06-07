@@ -1,0 +1,25 @@
+class Solution(object):
+    def intersect(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        nums1.sort()
+        nums2.sort()
+        
+        nums1_it = 0
+        nums2_it = 0
+        
+        solution = []
+        
+        while nums1_it < len(nums1) and nums2_it < len(nums2):
+            if nums1[nums1_it] == nums2[nums2_it]:
+                solution.append(nums1[nums1_it])
+                nums1_it+=1
+                nums2_it+=1
+            elif nums1[nums1_it] > nums2[nums2_it]:
+                nums2_it +=1
+            else:
+                nums1_it +=1
+        return solution
