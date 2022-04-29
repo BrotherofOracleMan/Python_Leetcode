@@ -1,3 +1,3 @@
 # Python_Leetcode
 
-Interview Prep
+Interview Prep and practice for Datastructures and Algorithms
