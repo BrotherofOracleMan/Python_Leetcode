@@ -4,7 +4,6 @@ class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
         bfs_q = deque()
         time_elapsed = -1
-        is_fresh_still_exists = False
         rows = len(grid)
         cols = len(grid[0])
         fresh_oranges = 0
@@ -29,12 +28,7 @@ class Solution:
                     new_y = y + coord_y
                     if new_x >= 0 and new_y >= 0 and new_x < rows and new_y < cols:
                         if grid[new_x][new_y] != 0 and grid[new_x][new_y] != 2:
+                            fresh_oranges -=1
                             grid[new_x][new_y] = 2
                             bfs_q.append([new_x,new_y])
             time_elapsed+=1
-
-        for i in range(rows):
-            for j in range(cols):
-                if grid[i][j] == 1:
-                    is_fresh_still_exists = True
-        return time_elapsed if not is_fresh_still_exists else -1
